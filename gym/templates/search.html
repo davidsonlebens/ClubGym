@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>Abonnement rechercher</h2>
+    <div class="row">
+      {% for abonnement in liste_abonnement %}
+     
+      <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="card mb-3 p-2">
+
+             <!-- Card image -->
+             {% if abonnement.image == "http://default" %}
+             <a href="{% url 'detail' abonnement.id %}">
+                 <img class="card-img-top" src="{%  static 'img/igym.jpg' %}" alt="Card image cap" style="height: 200px;">
+             </a>
+
+             {% else %}
+             <a href="{% url 'detail' abonnement.id %}">
+                 <img class="card-img-top" src="{{abonnement.image.url}}" alt="Card image cap" style="height: 200px;">
+             </a>
+             {% endif %}
+             
+
+             <!-- Card content -->
+             <div class="card-body" style="height: 240px;">
+
+                <!-- Title -->
+                <h4 class="card-title"><a href="{% url 'detail' abonnement.id %}">{{abonnement.title}}</a></h4>
+                <!-- Text -->
+                <p class="card-text">{{abonnement.desc|truncatewords:8}}</p>
+                <p class="card-text">Publié il y a {{abonnement.created_at|timesince}}</p>
+                <!-- Button -->
+                <a href="{% url 'detail' abonnement.id %}" class="btn btn-primary">Lire la suite</a>
+
+             </div>
+
+         </div>
+         <!-- endCard -->
+     </div>
+      {% endfor %}
+
+    </div>
+     
+</div>
+{% endblock %}

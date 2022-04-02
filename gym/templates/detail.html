@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="text-center mt-2">Detail abonnement</h2>
+            <img src="{{abonnement.image.url}}" alt="" style="max-width:600px;">
+            <h3>{{abonnement.title}}</h3>
+            <p>{{abonnement.desc}}</p>
+        </div>
+        <div class="col-md-4">
+            <h5 class="mt-2">Les différents types d'abonnements</h5 class="mt-2">
+                <div class="row">
+
+                    {% for abn in aer %}
+                    {% if abn.id != abonnement.id %}
+                    <div class="col-md-7 mb-1">
+                        {% if abn.image != "http://default" %}
+                        <img src="{{abn.image.url}}" alt="" style="max-width: 180px;">
+                        {% else %}
+                        <img class="card-img-top" src="https://via.placeholder.com/400x300" alt="Card image cap" style="max-width: 180px;">
+                        {% endif %}
+                    </div>
+                    <div class="col-5">
+                      <strong>{{abn.title}}</strong> <br>
+                      {{abn.desc | truncatewords:7}}
+                    </div>
+                    {% endif %}
+                    {% endfor%}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
