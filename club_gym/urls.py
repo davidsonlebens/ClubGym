@@ -21,7 +21,7 @@ from gym.views import home, detail, search, sms
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
+    path('index.html', home, name="home"),
     path('abonnement/<int:id_abonnement>', detail, name="detail"),
     path('abonnement/recherche', search, name="search"),
     path('message-sms', sms, name="sms"),
