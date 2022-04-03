@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6d2g^zt!puzted&a*p)c%ls4^6ii%1wo1v%!8qf&qyrm5t3v+t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['', '127.0.0.1']
+ALLOWED_HOSTS = ['https://davidsonlebens.github.io/club_gym/', '127.0.0.1']
 
 
 # Application definition
